@@ -17,7 +17,7 @@
 
 // ===== Exercise 2
 
-    // Add this line only if running in VS Code Terminal
+    
     const prompt = require('prompt-sync')(); 
 
     let guestList = {
