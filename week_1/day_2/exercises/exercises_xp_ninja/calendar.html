@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table { border-collapse: collapse; width: 300px; text-align: center; }
+        th, td { border: 1px solid #ccc; padding: 5px; }
+        th { background-color: #f4f4f4; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div id="calendar-container"></div>
+
+    <script>
+        function createCalendar(year, month) {
+            // JS months are 0-indexed (Jan=0, Sept=8)
+            let mon = month - 1; 
+            let d = new Date(year, mon);
+
+            let table = '<table><tr><th>MO</th><th>TU</th><th>WE</th><th>TH</th><th>FR</th><th>SA</th><th>SU</th></tr><tr>';
+
+            // 1. Fill empty spaces for the first week
+            // getDay() returns 0 for Sunday, 1 for Monday...
+            // We want Monday (1) to be the first, so we adjust
+            let dayOfWeek = d.getDay();
+            if (dayOfWeek === 0) dayOfWeek = 7; // Sunday fix
+
+            for (let i = 1; i < dayOfWeek; i++) {
+                table += '<td></td>';
+            }
+
+            // 2. Fill the actual days
+            while (d.getMonth() === mon) {
+                table += '<td>' + d.getDate() + '</td>';
+
+                // If Sunday (0), close the row and start a new one
+                if (d.getDay() === 0) { 
+                    table += '</tr><tr>';
+                }
+
+                d.setDate(d.getDate() + 1);
+            }
+
+            // 3. Fill empty spaces for the last week
+            if (d.getDay() !== 1) {
+                let lastDay = d.getDay() === 0 ? 7 : d.getDay();
+                for (let i = lastDay; i <= 7; i++) {
+                    table += '<td></td>';
+                }
+            }
+
+            table += '</tr></table>';
+            document.getElementById('calendar-container').innerHTML = table;
+        }
+
+        // Generate September 2012
+        createCalendar(2012, 9);
+    </script>
+</body>
+</html>
