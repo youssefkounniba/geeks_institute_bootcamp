@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    padding: 40px; /* Add padding so it doesn't touch the edges */
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: flex-start; /* Keeps it at the top, or use 'center' for middle */
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    font-family: sans-serif;
+}
+
+.main-container {
+    display: flex;
+    gap: 20px; /* Space between sidebar and grid */
+    max-width: 95vw; /* Prevents it from going off-screen on smaller monitors */
+}
+
+.sidebar {
+    width: 250px;
+    background: #fdffdf;
+    padding: 15px;
+    border: 1px solid #ccc;
+   
+}
+
+#clear-btn {
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* 3 columns for the palette */
+.palette-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+}
+
+.color-box {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+/* The Drawing Grid */
+.canvas-grid {
+    display: grid;
+    /* Adjust these numbers based on how many squares you want */
+    grid-template-columns: repeat(60, 1.5vw);
+    grid-template-rows: repeat(40, 1.5vw);
+    background: white;
+    border: 1px solid #ccc;
+    margin: 0 auto; 
+}
+
+.pixel {
+    width: 1.5vw;
+    height: 1.5vw;
+    border: 0.1px solid #eeeeee; 
+}
