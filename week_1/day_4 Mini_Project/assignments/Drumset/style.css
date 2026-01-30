@@ -1,0 +1,58 @@
+/* 1. Setup the Background */
+html {
+  /* You can replace this URL with the path to your concert image */
+  background: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') bottom center;
+  background-size: cover;
+  height: 100vh;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+/* 2. Center the keys on the screen */
+.keys {
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 3. Style the "Key" boxes */
+.key {
+  border: .2rem solid #ffc600; /* Yellow border */
+  border-radius: .5rem;
+  margin: 1rem;
+  font-size: 1.5rem;
+  padding: 1.5rem 1rem;
+  transition: all .07s ease; /* Smooth transition when playing */
+  width: 10rem;
+  text-align: center;
+  color: white;
+  background: rgba(0,0,0,0.5); /* Semi-transparent black background */
+  text-shadow: 0 0 .5rem black;
+}
+
+/* 4. THE GLOW EFFECT (This is the missing part) */
+.playing {
+  transform: scale(1.1); /* Grow slightly */
+  border-color: #ffc600;
+  box-shadow: 0 0 2rem #ffc600; /* Yellow glow shadow */
+}
+
+/* 5. Text styling inside the boxes */
+kbd {
+  display: block;
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.sound {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  color: #ffc600; /* Yellow sound labels */
+}
