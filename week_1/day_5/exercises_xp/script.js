@@ -1,7 +1,3 @@
-/**
- * WEEK 1 DAY 5: OBJECTS AND CLASSES - EXERCISES XP
- */
-
 // 🌟 Exercise 1 : Location
 {
     const person = {
